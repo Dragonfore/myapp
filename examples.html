@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Matthew's Webpage!</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
+    <style>
+        #header {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 100%;
+        }
+
+        #headerTable {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+        }
+
+        .headerCell {
+            background-color: lightgray;
+            color: darkslategray;
+            font-size: 1em;
+            border-radius: 0.45em 0.45em;
+            opacity: 0.7;
+            padding: 0.25em 0em;
+        }
+
+            .headerCell > a {
+                text-decoration: none;
+                color: darkslategray;
+                padding: 0em 2.5em;
+            }
+
+            .headerCell:hover {
+                background-color: lightskyblue;
+            }
+
+        body {
+            z-index: -100;
+            font-family: 'Exo 2', sans-serif;
+            overflow-wrap: break-word;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition-duration: 1.5s;
+        }
+    </style>
+</head>
+<body>
+    <div id="backgroundCover"></div>
+    <div id="header">
+
+        <table id="headerTable">
+            <tr>
+                <th class="headerCell">
+                    <a href="index.html">Home</a>
+                </th>
+                <th class="headerCell">
+                    <a href="examples.html">Bio</a>
+                </th>
+                <th class="headerCell">
+                    <a href="examples.html">Examples</a>
+                </th>
+                <th class="headerCell">
+                    <a href="examples.html">Other</a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <img src="pictures/ball.svg" width="100" height="100" id="ballerImage"/>
+
+    <script>
+        "use strict";
+
+        function baseExample(){
+            let ball = document.getElementById('ballerImage');
+
+        ball.onmousedown = function(event) {
+
+              let shiftX = event.clientX - ball.getBoundingClientRect().left;
+              let shiftY = event.clientY - ball.getBoundingClientRect().top;
+
+              ball.style.position = 'absolute';
+              ball.style.zIndex = 1000;
+              document.body.append(ball);
+
+              moveAt(event.pageX, event.pageY);
+
+              // centers the ball at (pageX, pageY) coordinates
+              function moveAt(pageX, pageY) {
+                ball.style.left = pageX - shiftX + 'px';
+                ball.style.top = pageY - shiftY + 'px';
+              }
+
+              function onMouseMove(event) {
+                moveAt(event.pageX, event.pageY);
+              }
+
+              // (3) move the ball on mousemove
+              document.addEventListener('mousemove', onMouseMove);
+
+              // (4) drop the ball, remove unneeded handlers
+              ball.onmouseup = function() {
+                document.removeEventListener('mousemove', onMouseMove);
+                ball.onmouseup = null;
+              };
+
+            };
+
+            ball.ondragstart = function() {
+              return false;
+            };
+        }
+
+        window.addEventListener('DOMContentLoaded', baseExample);
+    </script>
+
+</body>
+</html>

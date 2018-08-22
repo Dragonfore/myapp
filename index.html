@@ -1,13 +1,99 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Matthew's Webpage!</title>
+    <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <style>
-
+        #header {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            width: 100%;
+        }
+        #headerTable {
+            position:absolute;
+            right: 0px;
+            top: 0px;
+        }
+        .headerCell {
+            background-color: lightgray;
+            color: darkslategray;
+            font-size: 1em;
+            border-radius: 0.45em 0.45em;
+            padding: 0.25em 0em;
+            opacity: 0.7;
+        }
+        .headerCell > a {
+            text-decoration: none;
+            color: darkslategray;
+            padding: 0em 2.5em;
+        }
+        .headerCell:hover {
+            background-color: lightskyblue;
+        }
+        body {
+            background-size: cover;
+            background-image: url('pictures/citySkyline.jpeg');
+            background-repeat: repeat-y;
+            z-index: -100;
+            font-family: 'Exo 2', sans-serif;
+            overflow-wrap: break-word;
+            overflow-y: auto;
+            overflow-x: hidden;
+            transition-duration: 1.5s;
+        }
+        #backgroundCover {
+            position: absolute;
+            left: -5px;
+            top: -5px;
+            width: 105%;
+            height: 100%;
+            z-index: -50;
+            background-color: lightgray;
+            opacity: 0.10;
+            background-repeat: repeat;
+        }
+        #title {
+            -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.4)));
+            position: relative;
+            padding-left: 1.75em;
+            padding-top: 2.0em;
+            padding-right: 0.75em;
+            font-size: 10em;
+            color: white;
+        }
     </style>
 </head>
 <body>
+    <div id="backgroundCover"></div>
+    <div id="header">
+        
+        <table id="headerTable">
+            <tr>
+                <th class="headerCell">
+                    <a href="index.html" >Home</a>
+                </th>
+                <th class="headerCell">
+                    <a href="examples.html">Bio</a>
+                </th>
+                <th class="headerCell">
+                    <a href="examples.html">Examples</a>
+                </th>
+                <th class="headerCell">
+                    <a href="examples.html">Other</a>
+                </th>
+            </tr>
+        </table>
+    </div>
+
+    <h1 id="title">Matthew Mackay</h1>
+    
+
+
+    <script>
+        "use strict";
+    </script>
 
 </body>
 </html>

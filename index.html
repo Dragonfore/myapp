@@ -5,6 +5,33 @@
     <title>Matthew's Webpage!</title>
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/generalTemplate.css">
+    <style>
+        body {
+            background-size: cover;
+            background-image: url('pictures/citySkyline.jpeg');
+            background-repeat: repeat-y;
+        }
+        #backgroundCover {
+            position: absolute;
+            left: -5px;
+            top: -5px;
+            width: 105%;
+            height: 100%;
+            z-index: -50;
+            background-color: lightgray;
+            opacity: 0.10;
+            background-repeat: repeat;
+        }
+        #title {
+            -webkit-box-reflect: below 0px -webkit-gradient(linear, left top, left bottom, from(transparent), to(rgba(250, 250, 250, 0.4)));
+            position: relative;
+            padding-left: 1.75em;
+            padding-top: 2.0em;
+            padding-right: 0.75em;
+            font-size: 10em;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <div id="backgroundCover"></div>
@@ -30,11 +57,5 @@
 
     <h1 id="title">Matthew Mackay</h1>
     
-
-
-    <script>
-        "use strict";
-    </script>
-
 </body>
 </html>

@@ -77,42 +77,42 @@
         function baseExample(){
             let ball = document.getElementById('ballerImage');
 
-        ball.onmousedown = function(event) {
+            ball.onmousedown = function(event) {
 
-              let shiftX = event.clientX - ball.getBoundingClientRect().left;
-              let shiftY = event.clientY - ball.getBoundingClientRect().top;
+                  let shiftX = event.clientX - ball.getBoundingClientRect().left;
+                  let shiftY = event.clientY - ball.getBoundingClientRect().top;
 
-              ball.style.position = 'absolute';
-              ball.style.zIndex = 1000;
-              document.body.append(ball);
+                  ball.style.position = 'absolute';
+                  ball.style.zIndex = 1000;
+                  document.body.append(ball);
 
-              moveAt(event.pageX, event.pageY);
+                  moveAt(event.pageX, event.pageY);
 
-              // centers the ball at (pageX, pageY) coordinates
-              function moveAt(pageX, pageY) {
-                ball.style.left = pageX - shiftX + 'px';
-                ball.style.top = pageY - shiftY + 'px';
-              }
+                  // centers the ball at (pageX, pageY) coordinates
+                  function moveAt(pageX, pageY) {
+                    ball.style.left = pageX - shiftX + 'px';
+                    ball.style.top = pageY - shiftY + 'px';
+                  }
 
-              function onMouseMove(event) {
-                moveAt(event.pageX, event.pageY);
-              }
+                  function onMouseMove(event) {
+                    moveAt(event.pageX, event.pageY);
+                  }
 
-              // (3) move the ball on mousemove
-              document.addEventListener('mousemove', onMouseMove);
+                  // (3) move the ball on mousemove
+                  document.addEventListener('mousemove', onMouseMove);
 
-              // (4) drop the ball, remove unneeded handlers
-              ball.onmouseup = function() {
-                document.removeEventListener('mousemove', onMouseMove);
-                ball.onmouseup = null;
-              };
+                  // (4) drop the ball, remove unneeded handlers
+                  ball.onmouseup = function() {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    ball.onmouseup = null;
+                  };
 
             };
 
             ball.ondragstart = function() {
-              return false;
+                return false;
             };
-        }
+         }
 
         window.addEventListener('DOMContentLoaded', baseExample);
     </script>

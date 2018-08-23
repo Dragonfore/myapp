@@ -1,10 +1,15 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Matthew's Webpage!</title>
     <link href="https://fonts.googleapis.com/css?family=Exo+2" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/generalTemplate.css">
+    <style>
+        #pictureGallery1 {
+            transition-duration: all 1.5s;
+        }
+    </style>
 </head>
 <body>
     <div id="backgroundCover"></div>
@@ -30,14 +35,16 @@
 
     <img src="pictures/ball.svg" width="100" height="100" id="ballerImage"/>
 
-    <div class="displayAsyncMath">3.14</div>
+    <div id="displayAsyncMath">3.14</div>
+    <div id="pictureGallery1"> </div>
 
     <script src="javascript/ball.js"></script>
-    <script src="javascript/examples.js"></script>
+    <script src="javascript/examples.js" id='examplesJs'></script>
     <script>
         "use strict";
         window.addEventListener('DOMContentLoaded', baseExample);
         window.addEventListener('DOMContentLoaded', generatePi);
+        window.addEventListener('DOMContentLoaded', scrollingPictures);
     </script>
 
 </body>

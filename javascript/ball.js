@@ -1,3 +1,4 @@
+"use strict";
 function baseExample(){
     let ball = document.getElementById('ballerImage');
 

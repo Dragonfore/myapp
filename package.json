@@ -1,0 +1,28 @@
+{
+  "name": "webdev",
+  "version": "1.0.0",
+  "description": "My development environment for web and eventually for blockchain",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "chai": "^4.1.2"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://bclc_mmackay@bitbucket.org/bclc_mmackay/rtb-web-webdev.git"
+  },
+  "keywords": [
+    "blockchain"
+  ],
+  "author": "Matthew R. Mackay",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/bclc_mmackay/rtb-web-webdev#readme"
+}

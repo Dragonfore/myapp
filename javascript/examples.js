@@ -24,6 +24,7 @@ async function scrollingPictures(){
     let gallery = document.getElementById('pictureGallery1');
     let pictures = ['converse.jpeg', 'mountain.jpeg', 'forest.jpeg'];
     let currentPicture = 0;
+    let currentIteration = 0;
     gallery.appendChild(document.createElement('img'));
     while(true){
         let image = document.createElement('img');
@@ -31,5 +32,9 @@ async function scrollingPictures(){
         gallery.replaceChild(image, gallery.childNodes[0]);
         await(sleep(1000));
         currentPicture = (currentPicture+1)%pictures.length;
+        currentIteration++;
+        if (currentIteration > 10){break;}
     }
+    return true;
 }
+

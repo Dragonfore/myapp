@@ -28,9 +28,17 @@ let server = http.createServer(function(req, res) {
       res.writeHead(200, {"Content-Type": "image/png"});
       fileStream.pipe(res);
     }
+    else if(req.url.match("\.svg$")){
+      let imagePath = path.join(__dirname, req.url);
+      let fileStream = fs.createReadStream(imagePath);
+      res.writeHead(200, {"Content-Type": "image/svg"});
+      fileStream.pipe(res);
+    }
     else if(req.url.match('\.js$')){
       let jsPath = path.join(__dirname, req.url);
-      
+      let fileStream = fs.createReadStream(jsPath);
+      res.writeHead(200, {"Content-Type": 'text/javascript'});
+      fileStream.pipe(res);  
     }
     else if(req.url.match("\.html$")){
       let htmlPath = req.url;

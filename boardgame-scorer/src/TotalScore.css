@@ -1,0 +1,10 @@
+.score {
+    font-size: 18px;
+    color: black;
+    text-decoration: underline;
+}
+
+.score.winner {
+    font-size: 22px;
+    color: green;
+}

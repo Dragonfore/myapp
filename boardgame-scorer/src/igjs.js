@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import WordCloud from './WordCloud'
+var Sentiment = require('sentiment');
+var sentiment = new Sentiment()
 var WordCounter = require('wordcounter');
+
 
 export default class InstagramScraper extends Component {
   
@@ -22,6 +25,7 @@ export default class InstagramScraper extends Component {
       {word: 'github', value: 1},
       {word: 'code', value: 1},
     ];
+    this.myDiv = document.createElement('div');
   }
   onSubmit(evt){
     evt.preventDefault();
@@ -101,7 +105,7 @@ export default class InstagramScraper extends Component {
       str += "<br/>"
     }
     str += `<p>${Object.entries(countTotal)}</p><br/>`
-    this.displayWordCloud(countTotal)
+    this.displayWordCloud(countTotal);
     return str
   }
   displayWordCloud(countTotal){
@@ -112,7 +116,9 @@ export default class InstagramScraper extends Component {
       newArr.push({'word': currentEntry[0], 'value': Number(currentEntry[1])})
     }
     this.setState({words: newArr})
-    ReactDOM.render(<WordCloud displayWords={newArr}></WordCloud>, this)
+    ReactDOM.createPortal(<WordCloud displayWords={newArr}></WordCloud>, this.myDiv)
+    alert("hello world")
+    //alert(JSON.stringify(sentiment.analyze(newArr)))
   }
   collectPosts() {
     this.getPosts(this.state.targetInstagramUser).then(posts =>

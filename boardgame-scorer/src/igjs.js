@@ -117,8 +117,7 @@ export default class InstagramScraper extends Component {
     }
     this.setState({words: newArr})
     ReactDOM.createPortal(<WordCloud displayWords={newArr}></WordCloud>, this.myDiv)
-    alert("hello world")
-    //alert(JSON.stringify(sentiment.analyze(newArr)))
+    alert(JSON.stringify(sentiment.analyze(newArr)))
   }
   collectPosts() {
     this.getPosts(this.state.targetInstagramUser).then(posts =>
